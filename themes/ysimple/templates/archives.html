@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+            <div id="layout">
+                <div id="content">
+                    <div class="block">
+                        <div class="block-header">
+                            <h3>笔记列表</h3>
+                        </div>
+                        <div class="block-content">
+                            <ol id="posts-list">
+                            {% for a in articles %}
+                                <li>
+                                    <span>{{ a.date | strftime('%Y-%m-%d') }}</span>
+                                    <span><a href="{{ SITEURL }}/{{ a.url }}">{{ a.title }}</a></span>
+                                </li>
+                            {% endfor %}
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div id="sidebar">
+                    <div class="block">
+                        <div class="block-header">
+                            <h3>分类</h3>
+                        </div>
+                        <div class="block-content">
+                            <ul>
+                            {% for c, null in categories %}
+                                <li><a href="{{ SITEURL }}/categories/{{ c.url }}">{{ c.name }}</a></li>
+                            {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <div class="block-header">
+                            <h3>标签</h3>
+                        </div>
+                        <div class="block-content">
+                            <ul>
+                            {% for t, null in tags %}
+                                <li><a href="{{ SITEURL }}/tags/{{ t.url }}">{{ t.name }}</a></li>
+                            {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+{% endblock content %}

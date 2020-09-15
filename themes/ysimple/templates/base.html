@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="{{ DEFAULT_LANG }}">
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}{{ SITENAME }}{%endblock%}</title>
+        <link rel="stylesheet" href="{{ SITEURL }}/static/css/normalize.css">
+        <link rel="stylesheet" href="{{ SITEURL }}/static/css/pygments.css">
+        <link rel="stylesheet" href="{{ SITEURL }}/static/css/ysimple.css">
+    </head>
+    <body>
+        <div id="container">
+            <header id="banner">
+                <h1>{{ SITENAME }}</h1>
+            </header>
+            <nav id="menu">
+                <ul>
+                {% for title, link in MENUITEMS %}
+                    <li><a href="{{ link }}">{{ title }}</a></li>
+                {% endfor %}
+                </ul>
+            </nav>
+            {% block content %}
+            {% endblock %}
+            <footer id="copyright" class="block">
+                <p>Copyright &copy;2011 YYCrazy.Net All Rights Reserved.</p>
+            </footer>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+    {% for t, as in tags %}
+            <div class="block">
+                <div class="block-header">
+                    <h3>{{ t.name }}</h3>
+                </div>
+                <div class="block-content">
+                    <ol id="posts-list">
+                    {% for a in as %}
+                        <li>
+                            <span>{{ a.date | strftime('%Y-%m-%d') }}</span>
+                            <span><a href="{{ SITEURL }}/{{ a.url }}">{{ a.title }}</a></span>
+                        </li>
+                    {% endfor %}
+                    </ol>
+                </div>
+            </div>
+    {% endfor %}
+{% endblock content %}
